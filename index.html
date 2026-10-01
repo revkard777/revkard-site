@@ -265,7 +265,6 @@ footer{grid-template-columns:1.4fr 1fr 1fr 1.2fr}section{padding:110px 32px}}
 
 <!-- PERSONALIZACJA (niedostępne) -->
 <section id="custom" class="c">
-<span class="bd rv">SOON</span>
 <h2 class="rv">PERSONALIZACJA REVKARD</h2>
 <p class="rv">Już wkrótce będziesz mógł stworzyć własną wersję REVKARD, dopasowaną do identyfikacji wizualnej Twojej firmy.</p>
 <div class="g2 rv" style="opacity:.6;text-align:left">
@@ -277,7 +276,6 @@ footer{grid-template-columns:1.4fr 1fr 1fr 1.2fr}section{padding:110px 32px}}
 
 <!-- REVKARD PRO (niedostępne) -->
 <section id="pro" class="c">
-<span class="bd rv">SOON</span>
 <h2 class="rv">REVKARD PRO</h2>
 <p class="rv">Jeszcze więcej możliwości. Statystyki, zarządzanie i dodatkowe funkcje dla firm.</p>
 <div class="tl4 rv">
@@ -374,7 +372,7 @@ else{
   cart.forEach(it=>{
     const p=PRODUCTS[it.id];
     const row=document.createElement('div');row.className='crow';
-    row.innerHTML=`<img src="${CIMG}" alt="${p.name}" loading="lazy">
+    row.innerHTML=`<img src="./assets/revkard-card.jpg" alt="${p.name}" loading="lazy">
 <div><h4>${p.name}</h4><div class="up">${zl(p.price)}</div>
 <div class="qty"><button data-a="-1" aria-label="Mniej">−</button><b>${it.qty}</b><button data-a="1" aria-label="Więcej">+</button></div></div>
 <div><div class="lt">${zl(p.price*it.qty)}</div><button class="rm">USUŃ</button></div>`;
