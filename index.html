@@ -354,7 +354,7 @@ one:{name:'REVKARD ONE',price:129.99},
 duo:{name:'REVKARD DUO',price:219.99},
 business:{name:'REVKARD BUSINESS',price:499.99},
 };
-const CIMG='assets/revkard-card.png';
+const CIMG='/assets/revkard-card.png';
 const zl=n=>n.toLocaleString('pl-PL',{minimumFractionDigits:2,maximumFractionDigits:2})+' zł';
 let cart=[];
 try{cart=JSON.parse(localStorage.getItem('revkard_cart')||'[]').filter(i=>PRODUCTS[i.id]&&i.qty>0)}catch(e){cart=[]}
