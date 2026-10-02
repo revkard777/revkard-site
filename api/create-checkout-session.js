@@ -12,9 +12,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 // Prezzi ufficiali REVKARD, in grosze (1 zł = 100 grosze).
 // Per cambiare un prezzo in futuro, modifica SOLO questi numeri.
 const PRODUCTS = {
-  one:      { name: 'REVKARD ONE — 1 karta NFC',      amount: 12999 },
-  duo:      { name: 'REVKARD DUO — 2 karty NFC',       amount: 21999 },
-  business: { name: 'REVKARD BUSINESS — 5 kart NFC',   amount: 49999 },
+  one:      { name: 'REVKARD ONE — 1 karta NFC',      amount: 9999 },
+  duo:      { name: 'REVKARD DUO — 2 karty NFC',       amount: 17999 },
+  business: { name: 'REVKARD BUSINESS — 5 kart NFC',   amount: 34999 },
 };
 
 // Paesi verso cui accetti la spedizione (codici ISO a due lettere).
