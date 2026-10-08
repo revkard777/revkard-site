@@ -328,7 +328,7 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const M=(s,b)=>`mailto:${C.mail}?subject=${encodeURIComponent(s)}&body=${encodeURIComponent(b)}`;
 $$('[data-q]').forEach(a=>a.href=M(a.dataset.q,'Dzień dobry,\nchcę zapytać o szczegóły.'));
 $$('[data-pay]').forEach(a=>a.href=C.pay[a.dataset.pay]);
-$$('.stk').forEach(s=>{const n=+s.dataset.n,m=(n-1)/2;for(let i=0;i<n;i++)s.insertAdjacentHTML('beforeend',`<img src="./assets/revcard-card.png" alt="REVKARD" loading="lazy" style="--o:${i-m}">`)});
+$$('.stk').forEach(s=>{const n=+s.dataset.n,m=(n-1)/2;for(let i=0;i<n;i++)s.insertAdjacentHTML('beforeend',`<img src="/assets/revcard-card.png" alt="REVKARD" loading="lazy" style="--o:${i-m}">`)});
 
 const nav=$('#nav'),bg=$('#bg'),mm=$('#mm'),st=$('#stage');
 const tg=o=>{mm.classList.toggle('o',o);bg.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
@@ -343,7 +343,7 @@ start: { name: 'REVKARD START', price:699.80 },
 pro: { name: 'REVKARD PRO', price:1249.50 },
 business: { name: 'REVKARD BUSINESS', price:1999.99 }
 };
-const CIMG='./assets/revcard-card.png';
+const CIMG='/assets/revcard-card.png';
 const zl=n=>n.toLocaleString('pl-PL',{minimumFractionDigits:2,maximumFractionDigits:2})+' zł';
 let cart=[];
 try{cart=JSON.parse(localStorage.getItem('revkard_cart')||'[]').filter(i=>PRODUCTS[i.id]&&i.qty>0)}catch(e){cart=[]}
@@ -361,7 +361,7 @@ else{
   cart.forEach(it=>{
     const p=PRODUCTS[it.id];
     const row=document.createElement('div');row.className='crow';
-    row.innerHTML=`<img src="./assets/revcard-card.png" alt="${p.name}" loading="lazy">
+    row.innerHTML=`<img src="/assets/revcard-card.png" alt="${p.name}" loading="lazy">
 <div><h4>${p.name}</h4><div class="up">${zl(p.price)}</div>
 <div class="qty"><button data-a="-1" aria-label="Mniej">−</button><b>${it.qty}</b><button data-a="1" aria-label="Więcej">+</button></div></div>
 <div><div class="lt">${zl(p.price*it.qty)}</div><button class="rm">USUŃ</button></div>`;
