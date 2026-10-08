@@ -339,9 +339,9 @@ $$('.fq button').forEach(b=>b.onclick=()=>b.setAttribute('aria-expanded',b.paren
 // KOSZYK — katalog i prezzi qui sono SOLO per mostrare il carrello: il prezzo che conta
 // davvero viene ricalcolato dal server in api/create-checkout-session.js prima di pagare.
 const PRODUCTS={
-one:{name:'REVKARD ONE',price:129.99},
-duo:{name:'REVKARD DUO',price:219.99},
-business:{name:'REVKARD BUSINESS',price:499.99},
+start:{name:'REVKARD ONE',price:699,80},
+pro:{name:'REVKARD DUO',price:1249,50},
+business:{name:'REVKARD BUSINESS',price:1999.99},
 };
 const CIMG='./assets/revcard-card.png';
 const zl=n=>n.toLocaleString('pl-PL',{minimumFractionDigits:2,maximumFractionDigits:2})+' zł';
