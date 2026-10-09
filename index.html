@@ -104,8 +104,8 @@ h1{font-size:clamp(1.65rem,7.4vw,4.4rem);letter-spacing:-.01em;position:relative
 .pc ul{list-style:none;margin:18px 0 24px;flex:1}
 .pc li{padding:7px 0 7px 26px;position:relative;font-size:.92rem;color:var(--mu);border-top:1px solid var(--ln)}
 .pc li::before{content:"✓";position:absolute;left:0;color:var(--tx)}
-.stk{position:relative;height:120px;width:100%;max-width:220px;margin:0 auto 18px}
-.stk img{position:absolute;left:50%;bottom:0;width:150px;aspect-ratio:1.62;object-fit:cover;border-radius:11px;box-shadow:0 18px 32px -14px #000,0 0 0 1px rgba(255,255,255,.16);transform:translateX(calc(-50% + var(--o,0)*34px)) rotate(calc(var(--o,0)*7deg));transition:transform .3s}
+.stk{position:relative;height:184px;width:100%;max-width:220px;margin:16px auto 10px}
+.stk img{position:absolute;left:50%;bottom:0;width:118px;aspect-ratio:.6614;object-fit:cover;border-radius:11px;cursor:zoom-in;box-shadow:0 18px 32px -14px #000,0 0 0 1px rgba(255,255,255,.16);transform:translateX(calc(-50% + var(--o,0)*34px)) rotate(calc(var(--o,0)*7deg));transition:transform .3s}
 .pc:hover .stk img{transform:translateX(calc(-50% + var(--o,0)*38px)) rotate(calc(var(--o,0)*7deg)) translateY(-5px)}
 /* PERSONALIZACJA, PRO */
 .lv{border:1px solid var(--ln);border-radius:22px;padding:22px}.lv h3{letter-spacing:.14em;font-size:1rem;margin-bottom:6px}
@@ -168,6 +168,14 @@ footer a{display:block;text-decoration:none;padding:5px 0}
 .g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}.g2.pb{grid-template-columns:1.6fr 1fr}
 .bl{grid-template-columns:repeat(3,1fr)}.tl4{grid-template-columns:repeat(4,1fr)}
 footer{grid-template-columns:1.4fr 1fr 1fr 1.2fr}section{padding:110px 32px}}
+/* POPUP KARTY */
+.cm{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:24px;background:rgba(3,3,4,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .3s}
+.cm.o{opacity:1;pointer-events:auto}
+.cm img{display:block;max-width:min(92vw,560px);max-height:86vh;width:auto;height:auto;object-fit:contain;border-radius:16px;box-shadow:0 30px 80px -20px #000,0 0 0 1px rgba(255,255,255,.16);transform:scale(.94);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.cm.o img{transform:none}
+.cm-x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--ln);background:rgba(255,255,255,.08);color:var(--tx);font-size:1.15rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0}
+.cm-x:hover{background:rgba(255,255,255,.16)}
+.cm-x:focus-visible{outline:2px solid var(--tx);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.nd{opacity:1}}
 </style>
 <link rel="icon" href="data:image/png;base64,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">
@@ -203,6 +211,10 @@ footer{grid-template-columns:1.4fr 1fr 1fr 1.2fr}section{padding:110px 32px}}
 </div>
 </aside>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="cardModal" class="cm" role="dialog" aria-modal="true" aria-label="Podgląd karty" aria-hidden="true">
+<button id="cardModalX" class="cm-x" aria-label="Zamknij">✕</button>
+<img id="cardModalImg" src="" alt="REVKARD">
+</div>
 
 <main>
 <div id="okBanner" class="okb c" hidden><p id="okMsg"></p></div>
@@ -251,13 +263,13 @@ footer{grid-template-columns:1.4fr 1fr 1fr 1.2fr}section{padding:110px 32px}}
 <section id="oferta">
 <h2 class="c rv">WYBIERZ SWOJĄ REVKARD</h2>
 <div class="g3">
-<article class="pc rv"><div class="stk" data-n="1"></div><h3>REVKARD START</h3><p class="pr">34,99 zł / szt.</p><p>Zestaw 20 kart NFC (Razem: 699,80 zł)</p>
+<article class="pc rv"><h3>REVKARD START</h3><div class="stk" data-n="1"></div><p class="pr">34,99 zł / szt.</p><p>Zestaw 20 kart NFC (Razem: 699,80 zł)</p>
 <ul><li>20 kart NFC</li><li>bez aplikacji</li><li>bez logowania</li><li>bez abonamentu</li><li>bezpośrednie przekierowanie do opinii Google</li></ul>
 <a class="btn" data-pay="ONE" href="#oferta">WYBIERZ START</a></article>
-<article class="pc hl rv" style="--i:1"><div class="stk" data-n="2"></div><h3>REVKARD PRO</h3><p class="pr">24,99 zł / szt.</p><p>Zestaw 50 kart NFC (Razem: 1 249,50 zł)</p>
+<article class="pc hl rv" style="--i:1"><h3>REVKARD PRO</h3><div class="stk" data-n="2"></div><p class="pr">24,99 zł / szt.</p><p>Zestaw 50 kart NFC (Razem: 1 249,50 zł)</p>
 <ul><li>50 kart NFC</li><li>bez aplikacji</li><li>bez logowania</li><li>bez abonamentu</li><li>bezpośrednie przekierowanie do opinii Google</li></ul>
 <a class="btn" data-pay="DUO" href="#oferta">WYBIERZ PRO</a></article>
-<article class="pc rv" style="--i:2"><div class="stk" data-n="5"></div><h3>REVKARD BUSINESS</h3><p class="pr">19,99 zł / szt.</p><p>Zestaw 100 kart NFC (Razem: 1 999,00 zł)</p>
+<article class="pc rv" style="--i:2"><h3>REVKARD BUSINESS</h3><div class="stk" data-n="5"></div><p class="pr">19,99 zł / szt.</p><p>Zestaw 100 kart NFC (Razem: 1 999,00 zł)</p>
 <ul><li>100 kart NFC</li><li>bez aplikacji</li><li>bez logowania</li><li>bez abonamentu</li><li>bezpośrednie przekierowanie do opinii Google</li></ul>
 <a class="btn" data-pay="BUSINESS" href="#oferta">WYBIERZ BUSINESS</a></article>
 </div>
@@ -434,6 +446,20 @@ addEventListener('scroll',()=>{t||(t=requestAnimationFrame(sc))},{passive:true})
 // pojawianie się elementów
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 $$('.rv').forEach(el=>io.observe(el));
+// POPUP KARTY — ingrandimento della carta al click
+function openCardModal(src){
+const m=document.getElementById('cardModal');
+document.getElementById('cardModalImg').src=src||'/assets/revkard-card.png';
+m.classList.add('o');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+document.getElementById('cardModalX').focus();
+}
+function closeCardModal(){
+const m=document.getElementById('cardModal');
+m.classList.remove('o');m.setAttribute('aria-hidden','true');document.body.style.overflow='';
+}
+document.addEventListener('click',e=>{const i=e.target.closest&&e.target.closest('.stk img');if(i)openCardModal(i.currentSrc||i.src)});
+document.getElementById('cardModal').addEventListener('click',e=>{if(e.target.id!=='cardModalImg')closeCardModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCardModal()});
 </script>
 </body>
 </html>
